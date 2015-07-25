@@ -9,6 +9,7 @@ import commandes.Commande;
 import commandes.ChargerMemento;
 import commandes.Commande.TypeCommande;
 import commandes.Defaire;
+import commandes.Ouvrir;
 import commandes.Quitter;
 import commandes.Refaire;
 import commandes.Rien;
@@ -61,7 +62,7 @@ public class Controleur implements ActionListener {
 		Commande cmd;
 		switch(typeCmd) {
 		case CHARGERMEMENTO:
-			cmd = new ChargerMemento(index);
+			cmd = new ChargerMemento(0);
 			break;
 		case DEFAIRE:
 			cmd = new Defaire();
@@ -119,11 +120,9 @@ public class Controleur implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Action Performe");
-
 	}
 
 	// fonctions de memento
-
 	public void nouveauMemento(Memento memento) {
 		caretaker.add(memento);
 	}
@@ -138,7 +137,6 @@ public class Controleur implements ActionListener {
 	}
 
 	// fonction de commandes touchant au memento
-
 	public boolean hasNext() {
 		return (currentMemento + 1 < caretaker.getNbMemento());
 	}

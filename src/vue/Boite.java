@@ -39,16 +39,12 @@ public class Boite extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-
 		memeImageQueControlleur = Controleur.getControleur().getImage();
 
 		repaint();
-
 	}
 
 	protected void paintComponent(Graphics g) {
-		// super.paintComponent(g);
 		if (memeImageQueControlleur != null) {
 			g.clearRect(0, 0, getWidth(), getHeight());
 			g.drawImage(memeImageQueControlleur, 0, 0, memeImageQueControlleur.getWidth() - 1,

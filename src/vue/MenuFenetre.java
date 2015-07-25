@@ -18,10 +18,6 @@ import javax.swing.JMenuBar;
  *******************************************************/
 
 public class MenuFenetre extends JMenuBar {
-
-	/**
-	 * ?
-	 */
 	private static final long serialVersionUID = 1L;
 
 	JMenu aide, fichier, modifier, quitter;

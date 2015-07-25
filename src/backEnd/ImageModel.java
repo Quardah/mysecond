@@ -31,14 +31,7 @@ public class ImageModel extends Observable {
 	private int positionY;
 
 	public ImageModel() throws IOException {
-		chooser.showOpenDialog(null);
-		try {
-			image = ImageIO.read(chooser.getSelectedFile());
-		} catch (IOException e) {
-			System.out.println("C'est pas une image.");
-			System.out.println("Exit prevu (IMAGEMODEL 38).");
-			System.exit(0);
-		}
+		newImage();
 	}
 
 	public void setFacteurZoom(double afacteurZoom) {
@@ -55,10 +48,10 @@ public class ImageModel extends Observable {
 		try {
 			image = ImageIO.read(chooser.getSelectedFile());
 		} catch (IOException e) {
-			System.out.println("C'est pas une image.");
-			System.out.println("Exit prevu (IMAGEMODEL 58).");
-			System.exit(0);
+			e.printStackTrace();
 		}
+
+		notifyObservers();
 	}
 
 	public BufferedImage getImage() {

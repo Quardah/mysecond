@@ -28,7 +28,7 @@ public class Ouvrir extends Commande {
 
 	public void execute() {
 		try {
-			controleur.setImage(new ImageModel());
+			this.controleur.setImage(new ImageModel());
 		} catch (IOException e) {
 			System.out.println("Bad File");
 		}
