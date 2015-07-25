@@ -17,36 +17,24 @@ Historique des modifications
 *******************************************************/
 
 import java.io.IOException;
-import java.util.Observable;
-import java.util.Observer;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-public class FenetrePrincipale extends JFrame implements Observer {
 
-	private static final long serialVersionUID = 338888666171414714L;
+public class FenetrePrincipale extends JFrame {
+	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				try {
-					new Frame();
-				} catch (IOException e) {
-					System.out.println("Ce message devrait jamais être callé.");
-				}
+					try {
+						new Frame();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 			}
 		});
 	}
-
-	public FenetrePrincipale() {
-
-	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
