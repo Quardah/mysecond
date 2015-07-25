@@ -18,14 +18,16 @@ import backEnd.Controleur;
 
 public class ChargerMemento extends Commande {
 	private Controleur controleur;
+	private int index = 0;
 
-	public ChargerMemento() {
+	public ChargerMemento(int a) {
 		this.controleur = Controleur.getControleur();
+		this.index = a;
 	}
 
 	public void execute() { // trouver facon statique de prendre indice dans le
 							// runtime
-		controleur.loadMemento(1);
+		controleur.loadMemento(this.index);
 	}
 
 }

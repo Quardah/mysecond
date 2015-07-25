@@ -61,7 +61,7 @@ public class Controleur implements ActionListener {
 		Commande cmd;
 		switch(typeCmd) {
 		case CHARGERMEMENTO:
-			cmd = new ChargerMemento();
+			cmd = new ChargerMemento(index);
 			break;
 		case DEFAIRE:
 			cmd = new Defaire();
