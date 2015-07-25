@@ -109,8 +109,8 @@ public class Controleur implements ActionListener {
 		this.positiony = positiony;
 	}
 
-	public BufferedImage getImage() {
-		return image.getImage();
+	public ImageModel getImage() {
+		return image;
 	}
 
 	public void setImage(ImageModel image) {
