@@ -3,6 +3,8 @@ package backEnd;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.awt.image.BufferedImage;
 
 import commandes.Commande;
@@ -33,7 +35,7 @@ Historique des modifications
 2015-07-22 Version fonctionnelle avec constructeur Singleton
 *******************************************************/
 
-public class Controleur implements ActionListener {
+public class Controleur extends Observable implements ActionListener, Observer  {
 
 	private static Controleur instance = null;
 	private Caretaker caretaker = null;
@@ -113,8 +115,10 @@ public class Controleur implements ActionListener {
 		return image;
 	}
 
-	public void setImage(ImageModel image) {
-		this.image = image;
+	public void setImage(BufferedImage bufImg) {
+		this.image.setImage(bufImg);
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	@Override
@@ -148,5 +152,13 @@ public class Controleur implements ActionListener {
 	public ImageModel getImageModel() {
 		// Pour SauverMemento Uniquement
 		return image;
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		// TODO Auto-generated method stub
+		
+		// call les repaints
+		
 	}
 }

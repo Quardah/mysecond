@@ -16,21 +16,26 @@ package commandes;
 
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+
 import backEnd.Controleur;
 import backEnd.ImageModel;
 
 public class Ouvrir extends Commande {
 	private Controleur controleur;
+	protected static JFileChooser chooser = new JFileChooser();
 
 	public Ouvrir() {
 		this.controleur = Controleur.getControleur();
 	}
 
 	public void execute() {
+		chooser.showOpenDialog(null);
 		try {
-			this.controleur.setImage(new ImageModel());
+			this.controleur.setImage(ImageIO.read(chooser.getSelectedFile()));
 		} catch (IOException e) {
-			System.out.println("Bad File");
+			e.printStackTrace();
 		}
 	}
 	

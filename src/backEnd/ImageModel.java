@@ -19,19 +19,18 @@ import java.util.Observable;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
-
 public class ImageModel extends Observable {
 
 	protected BufferedImage image;
-	protected static JFileChooser chooser = new JFileChooser();
 	private double facteurZoom;
 	private int positionX;
 	private int positionY;
 
 	public ImageModel() throws IOException {
-		newImage();
+		this.image = null;
+		this.facteurZoom = 1;
+		this.positionX = 0;
+		this.positionY = 0;
 	}
 
 	public void setFacteurZoom(double afacteurZoom) {
@@ -41,18 +40,6 @@ public class ImageModel extends Observable {
 	public void setPositionXY(int posX, int posY) {
 		this.positionX = posX;
 		this.positionY = posY;
-	}
-
-	public void newImage() throws IOException {
-		chooser.showOpenDialog(null);
-		try {
-			image = ImageIO.read(chooser.getSelectedFile());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		this.setChanged();
-		notifyObservers();
 	}
 
 	public BufferedImage getImage() {

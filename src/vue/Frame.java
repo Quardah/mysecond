@@ -33,7 +33,6 @@ public class Frame extends JFrame {
 	private JPanel panneau = new JPanel();
 	private MenuFenetre menu = new MenuFenetre();
 	private Controleur controleur = Controleur.getControleur();
-	private ImageModel imageModel = new ImageModel();
 
 	public Frame() throws IOException {
 		JPanel labelVignette = new JPanel();
@@ -65,11 +64,9 @@ public class Frame extends JFrame {
 		this.panneau.add(boiteMain);
 		this.panneau.add(boitePerspective);
 
-		this.imageModel.addObserver(boiteVignette);
-		this.imageModel.addObserver(boiteMain);
-		this.imageModel.addObserver(boitePerspective);
-		this.controleur.setImage(this.imageModel);
-		this.imageModel.notifyObservers();
+		this.controleur.addObserver(boiteVignette);
+		this.controleur.addObserver(boiteMain);
+		this.controleur.addObserver(boitePerspective);
 
 		this.add(this.panneau,  BorderLayout.CENTER);
 		this.setVisible(true);
