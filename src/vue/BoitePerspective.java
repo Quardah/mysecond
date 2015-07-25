@@ -29,22 +29,13 @@ public class BoitePerspective extends Boite {
 		super(positionx, positiony, Largeur, Longueur);
 	}
 
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		System.out.println("OKSAUPDATE");
-		memeImageQueControlleur = Controleur.getControleur().getImage();
-
-		repaint();
-	}
-
 	protected void paintComponent(Graphics g) {
 		// super.paintComponent(g);
 		System.out.println("PAINT DEQUOI");
-		if (memeImageQueControlleur != null) {
+		if (img != null) {
 			g.clearRect(0, 0, getWidth(), getHeight());
-			g.drawImage(memeImageQueControlleur, 0, 0, memeImageQueControlleur.getWidth() - 1,
-					memeImageQueControlleur.getHeight() - 1, null);
+			g.drawImage(img, 0, 0, img.getWidth() - 1,
+					img.getHeight() - 1, null);
 		}
 	}
 

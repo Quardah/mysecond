@@ -51,6 +51,7 @@ public class ImageModel extends Observable {
 			e.printStackTrace();
 		}
 
+		this.setChanged();
 		notifyObservers();
 	}
 

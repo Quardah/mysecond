@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import backEnd.Controleur;
+import backEnd.ImageModel;
 
 /******************************************************
  * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: Boite.java Date cree:
@@ -29,8 +30,8 @@ import backEnd.Controleur;
 
 public class Boite extends JPanel implements Observer {
 
-	private static final long serialVersionUID = 3394039485339402L;
-	protected BufferedImage memeImageQueControlleur;
+	private static final long serialVersionUID = 1L;
+	protected BufferedImage img;
 
 	public Boite(int positionx, int positiony, int Largeur, int Longueur) {
 		this.setBounds(positionx, positiony, Largeur, Longueur);
@@ -39,17 +40,16 @@ public class Boite extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		memeImageQueControlleur = Controleur.getControleur().getImage();
-
+		ImageModel imgModel = (ImageModel) arg0;
+		this.img = imgModel.getImage();
 		repaint();
 	}
 
 	protected void paintComponent(Graphics g) {
-		if (memeImageQueControlleur != null) {
+		if (img != null) {
 			g.clearRect(0, 0, getWidth(), getHeight());
-			g.drawImage(memeImageQueControlleur, 0, 0, memeImageQueControlleur.getWidth() - 1,
-					memeImageQueControlleur.getHeight() - 1, null);
+			g.drawImage(img, 0, 0, img.getWidth() - 1,
+					img.getHeight() - 1, null);
 		}
 	}
-
 }
