@@ -14,6 +14,8 @@ package commandes;
  *         initiale 2015-07-20 Version Finale.
  *******************************************************/
 public abstract class Commande {
+	
+	public enum TypeCommande { DEFAIRE, REFAIRE, CHARGERMEMENTO, SAUVERMEMENTO, TRANSLATER, ZOOMER, QUITTER };
 
 	public abstract void execute();
 }

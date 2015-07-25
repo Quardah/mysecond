@@ -5,11 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
 
-import commandes.ChargerMemento;
 import commandes.Commande;
+import commandes.ChargerMemento;
+import commandes.Commande.TypeCommande;
 import commandes.Defaire;
 import commandes.Quitter;
 import commandes.Refaire;
+import commandes.Rien;
 import commandes.SauverMemento;
 import commandes.Translater;
 import commandes.Zoomer;
@@ -32,8 +34,7 @@ Historique des modifications
 
 public class Controleur implements ActionListener {
 
-	protected ArrayList<Commande> cmdListe;
-	private static Controleur controleur = null;
+	private static Controleur instance = null;
 	private Caretaker caretaker = null;
 	private ImageModel image = null;
 	private int currentMemento = 0;
@@ -42,40 +43,50 @@ public class Controleur implements ActionListener {
 	private int positiony;
 
 	protected Controleur() {
-		//
+		this.factory = new Factory();
+		this.caretaker = new Caretaker();
+		this.positionx = 0;
+		this.positiony = 0;
 	}
 
 	public static Controleur getControleur() {
-		if (controleur == null) { // pattern singleton
-			controleur = new Controleur();
-			controleur.factory = new Factory();
-			controleur.cmdListe = new ArrayList<Commande>();
-			controleur.ajouterCommande(new Defaire());
-			controleur.ajouterCommande(new Refaire());
-			controleur.ajouterCommande(new ChargerMemento());
-			controleur.ajouterCommande(new SauverMemento());
-			controleur.ajouterCommande(new Translater());
-			controleur.ajouterCommande(new Zoomer());
-			controleur.ajouterCommande(new Quitter());
-			controleur.caretaker = new Caretaker();
-			controleur.positionx = 0;
-			controleur.positiony = 0;
+		if (Controleur.instance == null) { // pattern singleton
+			instance = new Controleur();
 		}
-		return controleur;
+		
+		return instance;
 	}
 
-	public void runCommande(int nb) {
-		/*
-		 * ici, on envoi un numero pour executer une commande en particulier
-		 * selon la liste de commande. 0 = Defaire 1 = Refaire 2 =
-		 * ChargerMemento 3 = SauverMemento 4 = Translater 5 = Zommer 6 =
-		 * Quitter
-		 */
-		cmdListe.get(nb).execute();
-	}
-
-	public void ajouterCommande(Commande aCommande) {
-		cmdListe.add(aCommande);
+	public void runCommande(TypeCommande typeCmd) {
+		Commande cmd;
+		switch(typeCmd) {
+		case CHARGERMEMENTO:
+			cmd = new ChargerMemento();
+			break;
+		case DEFAIRE:
+			cmd = new Defaire();
+			break;
+		case QUITTER:
+			cmd = new Quitter();
+			break;
+		case REFAIRE:
+			cmd = new Refaire();
+			break;
+		case SAUVERMEMENTO:
+			cmd = new SauverMemento();
+			break;
+		case TRANSLATER:
+			cmd = new Translater();
+			break;
+		case ZOOMER:
+			cmd = new Zoomer();
+			break;
+		default:
+			cmd = new Rien();
+			break;
+		}
+		
+		cmd.execute();
 	}
 
 	public int getPositionx() {
