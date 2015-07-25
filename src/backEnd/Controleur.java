@@ -15,18 +15,20 @@ import commandes.Translater;
 import commandes.Zoomer;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 JavaPaint Nom du fichier:
- * Controlleur.java Date cree: 2015-07-15
- *******************************************************
- * Classe definissant le controlleur et son comportement permet d'agir et de
- * faire des modifications sur l'image
- *******************************************************
- * Historique des modifications
- *******************************************************
- * @author Jean-Pierre Bertrand Dorion 2015-07-15 Version Initiale (attributs,
- *         constructeur, get & set) 2015-07-22 Version fonctionnelle avec
- *         constructeur Singleton
- *******************************************************/
+Cours:  LOG121
+Projet: laboratoire #4 JavaPaint
+Nom du fichier: Controlleur.java
+Date cree: 2015-07-15
+*******************************************************
+* Classe definissant le controlleur et son comportement
+* permet d'agir et de faire des modifications sur l'image
+*******************************************************
+Historique des modifications
+*******************************************************
+*@author Jean-Pierre Bertrand Dorion
+2015-07-15 Version Initiale (attributs, constructeur, get & set)
+2015-07-22 Version fonctionnelle avec constructeur Singleton
+*******************************************************/
 
 public class Controleur implements ActionListener {
 
@@ -35,7 +37,7 @@ public class Controleur implements ActionListener {
 	private Caretaker caretaker = null;
 	private ImageModel image = null;
 	private int currentMemento = 0;
-
+	private Factory factory = null;	
 	private int positionx;
 	private int positiony;
 
@@ -46,6 +48,7 @@ public class Controleur implements ActionListener {
 	public static Controleur getControleur() {
 		if (controleur == null) { // pattern singleton
 			controleur = new Controleur();
+			controleur.factory = new Factory();
 			controleur.cmdListe = new ArrayList<Commande>();
 			controleur.ajouterCommande(new Defaire());
 			controleur.ajouterCommande(new Refaire());

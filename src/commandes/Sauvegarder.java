@@ -28,7 +28,6 @@ public class Sauvegarder extends Commande {
 
 	private ImageModel pictureMemoire;
 
-	@Override
 	public void execute() {
 
 		// execute save action
