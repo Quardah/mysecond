@@ -1,4 +1,4 @@
-package vue;
+package commandes;
 
 /******************************************************
 Cours:  LOG121
@@ -19,6 +19,8 @@ Historique des modifications
 import java.io.*;
 
 import javax.imageio.ImageIO;
+
+import backEnd.ImageModel;
 
 import java.awt.image.BufferedImage;
 
