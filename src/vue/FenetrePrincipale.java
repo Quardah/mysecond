@@ -16,21 +16,16 @@ Historique des modifications
 2015-07-23 Ya dequoi qui marche pas faut checker le run
 *******************************************************/
 
-import java.awt.BorderLayout;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.*;
 
-
 public class FenetrePrincipale extends JFrame implements Observer {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 338888666171414714L;
-	
+
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -43,15 +38,15 @@ public class FenetrePrincipale extends JFrame implements Observer {
 			}
 		});
 	}
-	
-	public FenetrePrincipale(){
-	
+
+	public FenetrePrincipale() {
+
 	}
-	
+
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

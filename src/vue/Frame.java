@@ -17,12 +17,11 @@ Historique des modifications
 *******************************************************/
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.io.IOException;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import backEnd.Controleur;
 import backEnd.ImageModel;

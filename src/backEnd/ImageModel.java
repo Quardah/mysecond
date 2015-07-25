@@ -1,4 +1,5 @@
 package backEnd;
+
 /******************************************************
 Cours:  LOG121
 Projet: laboratoire #4 JavaPaint
@@ -22,9 +23,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 
 public class ImageModel extends Observable {
-	
+
 	protected BufferedImage image;
-	protected static JFileChooser chooser = new JFileChooser(); 
+	protected static JFileChooser chooser = new JFileChooser();
 	private double facteurZoom;
 	private int positionX;
 	private int positionY;
@@ -32,35 +33,35 @@ public class ImageModel extends Observable {
 	public ImageModel() throws IOException {
 		chooser.showOpenDialog(null);
 		try {
-		image = ImageIO.read(chooser.getSelectedFile());
-		} catch(IOException e) {
+			image = ImageIO.read(chooser.getSelectedFile());
+		} catch (IOException e) {
 			System.out.println("C'est pas une image.");
 			System.out.println("Exit prevu (IMAGEMODEL 38).");
 			System.exit(0);
 		}
 	}
-	
-	public void setFacteurZoom(double afacteurZoom){
+
+	public void setFacteurZoom(double afacteurZoom) {
 		this.facteurZoom = afacteurZoom;
 	}
-	   
-	public void setPositionXY(int posX, int posY){
+
+	public void setPositionXY(int posX, int posY) {
 		this.positionX = posX;
 		this.positionY = posY;
-	}	 
-	
+	}
+
 	public void newImage() throws IOException {
 		chooser.showOpenDialog(null);
 		try {
-		image = ImageIO.read(chooser.getSelectedFile());
-		} catch(IOException e) {
+			image = ImageIO.read(chooser.getSelectedFile());
+		} catch (IOException e) {
 			System.out.println("C'est pas une image.");
 			System.out.println("Exit prevu (IMAGEMODEL 58).");
 			System.exit(0);
 		}
 	}
-	
-	public BufferedImage getImage(){
+
+	public BufferedImage getImage() {
 		return image;
 	}
 

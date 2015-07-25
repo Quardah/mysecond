@@ -16,13 +16,11 @@ Historique des modifications
 2015-07-22 Version Fonctionelle
 *******************************************************/
 
-import java.io.*;
-
 import javax.imageio.ImageIO;
-
 import backEnd.ImageModel;
-
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 // faut trouver une facon de out du programme l'image modifier dans le buffer vers le disque.
 

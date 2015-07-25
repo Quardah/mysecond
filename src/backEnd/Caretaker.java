@@ -3,30 +3,28 @@ package backEnd;
 import java.util.ArrayList;
 
 /******************************************************
-Cours:  LOG121
-Projet: laboratoire #4 
-Nom du fichier: CareTaker.java
-Date cree: 2015-07-19
-*******************************************************
-* Classe concrete du gestionnaire d'etat "Memento". Permet
-* De reprendre un état.
-*******************************************************
-Historique des modifications
-*******************************************************
-*@author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
-*@author Carl-Hendi Codio & Mohammed Nacereddine Toros.
-2015-07-22 Version Initiale.
-*******************************************************/
+ * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: CareTaker.java Date
+ * cree: 2015-07-19
+ *******************************************************
+ * Classe concrete du gestionnaire d'etat "Memento". Permet De reprendre un
+ * état.
+ *******************************************************
+ * Historique des modifications
+ *******************************************************
+ * @author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
+ * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 2015-07-22 Version
+ *         Initiale.
+ *******************************************************/
 
 public class Caretaker {
 
 	protected ArrayList<Memento> mementoList = null;
-	
+
 	public Caretaker() {
 		mementoList = new ArrayList<Memento>();
 	}
-	
-	public void add(Memento memento){
+
+	public void add(Memento memento) {
 		mementoList.add(memento);
 	}
 
@@ -37,5 +35,4 @@ public class Caretaker {
 	public int getNbMemento() {
 		return mementoList.size();
 	}
-	
 }
