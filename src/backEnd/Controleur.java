@@ -81,6 +81,9 @@ public class Controleur implements ActionListener {
 		case ZOOMER:
 			cmd = new Zoomer();
 			break;
+		case OUVRIR:
+			cmd = new Ouvrir();
+			break;
 		default:
 			cmd = new Rien();
 			break;
