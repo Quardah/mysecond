@@ -17,7 +17,6 @@ Historique des modifications
 public class Factory {
 	
 	public Factory() {
-		
 	}
 
 }
