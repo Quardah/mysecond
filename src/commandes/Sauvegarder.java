@@ -1,7 +1,8 @@
-package commandes;
+package vue;
+
 /******************************************************
 Cours:  LOG121
-Projet: laboratoire #4 
+Projet: laboratoire #4
 Nom du fichier: Sauvegarder.java
 Date cree: 2015-07-19
 *******************************************************
@@ -17,17 +18,41 @@ Historique des modifications
 
 import java.io.*;
 
-public class Sauvegarder extends Commande{
-	
-	private String path = null;	
+import javax.imageio.ImageIO;
+
+import java.awt.image.BufferedImage;
+
+// faut trouver une facon de out du programme l'image modifier dans le buffer vers le disque.
+
+public class Sauvegarder extends Commande {
+
+	private ImageModel pictureMemoire;
 
 	@Override
 	public void execute() {
+
 		// execute save action
-		System.out.println(path);
+
+		// Enregistre les fichiers JPG uniquement
+
+		String format = "JPG";
+
+		BufferedImage image = pictureMemoire.getImage();
+
+		try {
+
+			ImageIO.write(image, format,
+
+			new File("C://Users/chcodio/Documents/image.jpg"));
+
+		} catch (IOException e) {
+
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+
+		}
+
 	}
-	
-	
-	
 
 }
