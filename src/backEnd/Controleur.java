@@ -45,6 +45,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	private Factory factory = null;	
 	private int positionx;
 	private int positiony;
+	private double zoomLevel;
 
 	protected Controleur() {
 		this.factory = new Factory();
@@ -98,6 +99,8 @@ public class Controleur extends Observable implements ActionListener, Observer  
 		}
 		
 		cmd.execute();
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public int getPositionx() {
@@ -162,5 +165,17 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	
 	public boolean hasImage(){
 		return image.getImage() != null;
+	}
+
+
+	public void setZoomLevel(double zoomLevel)
+	{
+		zoomLevel /= 100;
+		zoomLevel *= -45;
+		this.zoomLevel = zoomLevel;
+	}
+	public double getZoomLevel()
+	{
+		return zoomLevel;
 	}
 }

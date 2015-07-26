@@ -34,8 +34,8 @@ public class ImageModel extends Observable{
 	}
 
 	public void setPositionXY(int posX, int posY) {
-		this.positionX += posX;
-		this.positionY += posY;
+		this.positionX = posX;
+		this.positionY = posY;
 		setChanged();
 		notifyObservers();
 	}
@@ -70,5 +70,7 @@ public class ImageModel extends Observable{
 	
 	public void setFacteurZoom(double facteurZoom){
 		this.facteurZoom = facteurZoom;
+		setChanged();
+		notifyObservers();
 	}
 }
