@@ -18,14 +18,16 @@ import backEnd.ImageModel;
 
 public class Translater extends Commande {
 
-	private int positionX, positionY;
-	private ImageModel image;
 	private Controleur controleur;
+	
+	public Translater(){
+		this.controleur = Controleur.getControleur();
+	}
 
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-		image.setPositionXY(controleur.getPositionx(), controleur.getPositiony());
+		controleur.getImageModel().setPositionXY(controleur.getPositionx(), controleur.getPositiony());
 
 	}
 

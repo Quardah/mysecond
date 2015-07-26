@@ -38,8 +38,10 @@ public class ImageModel extends Observable {
 	}
 
 	public void setPositionXY(int posX, int posY) {
-		this.positionX = posX;
-		this.positionY = posY;
+		this.positionX += posX;
+		this.positionY += posY;
+		setChanged();
+		notifyObservers();
 	}
 
 	public BufferedImage getImage() {

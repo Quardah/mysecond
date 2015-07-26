@@ -156,8 +156,10 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub
-		
 		// call les repaints
-		
+	}
+	
+	public boolean hasImage(){
+		return image.getImage() != null;
 	}
 }

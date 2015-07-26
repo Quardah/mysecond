@@ -28,6 +28,7 @@ import backEnd.Controleur;
 public class MenuFenetre extends JMenuBar {
 	private static final long serialVersionUID = 1L;
 	private Controleur controleur = null;
+	private int nbmemento = 0;
 
 	private JMenu aide, fichier, modifier;
 	private JMenuItem ouvririmage, saveimage, quit, defaire, refaire, savemem, loadmem, trans, zoom;
@@ -67,7 +68,7 @@ public class MenuFenetre extends JMenuBar {
 		refaire.addActionListener(new RedoLis());
 		modifier.add(refaire);
 
-		loadmem = new JMenuItem("Charger Memento");
+		loadmem = new JMenu("Charger Memento");
 		loadmem.addActionListener(new LoadMemLis());
 		modifier.add(loadmem);
 		
@@ -106,6 +107,10 @@ public class MenuFenetre extends JMenuBar {
 	
 	private class SaveMemLis implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
+			//newmem = new JMenuItem("" + nbmemento + "");
+			//newmem.addActionListener(new LoadMemLis(nbmemento));
+			//loadmem.add(newmem);
+			//nbmemento++;
 			controleur.runCommande(Commande.TypeCommande.SAUVERMEMENTO);
 		}
 	}
