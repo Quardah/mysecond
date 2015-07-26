@@ -32,7 +32,7 @@ public class ControleurSourie extends MouseAdapter {
 					if (median == null) median = debut;
 					
 					controleur.setPositionx(event.getPoint().x);
-					controleur.setPositionx(event.getPoint().y);
+					controleur.setPositiony(event.getPoint().y);
 					controleur.runCommande(Commande.TypeCommande.TRANSLATER);
 										 
 					median =  event.getPoint();

@@ -17,6 +17,7 @@ Historique des modifications
 *******************************************************/
 
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 
 import backEnd.Controleur;
 import backEnd.ImageModel;
@@ -29,11 +30,11 @@ import java.io.IOException;
 
 public class Sauvegarder extends Commande {
 	private Controleur controleur;
-
-	private ImageModel pictureMemoire;
+	private JFileChooser chooser;
 	
 	public Sauvegarder(){
 		this.controleur = Controleur.getControleur();
+		chooser = new JFileChooser();
 	}
 
 	public void execute() {
@@ -42,24 +43,29 @@ public class Sauvegarder extends Commande {
 
 		// Enregistre les fichiers JPG uniquemente
 
-		String format = "JPG";
-
+		String format = "png";
 		BufferedImage image = controleur.getImageModel().getImage();
+		chooser.setSelectedFile(new File("photo.png"));
+		chooser.setDialogTitle("Specify a file to save");   
+		 
+		int userSelection = chooser.showSaveDialog(null);
+		 
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+		    File fileToSave = chooser.getSelectedFile();
+		    System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+		    
+			try {
 
-		try {
+				ImageIO.write(image, format, fileToSave);
 
-			ImageIO.write(image, format,
+			} catch (IOException e) {
 
-			//works only on linux now
-					
-			new File("~/Documents/image.jpg"));
+				// TODO Auto-generated catch block
 
-		} catch (IOException e) {
+				e.printStackTrace();
 
-			// TODO Auto-generated catch block
-
-			e.printStackTrace();
-
+			}
+			
 		}
 
 	}
