@@ -43,6 +43,7 @@ public class Boite extends JPanel implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		Controleur controleur = (Controleur) arg0;
 		this.img = controleur.getImageModel();
+		System.out.println("I HAVE REPAINT!!!");
 		repaint();
 	}
 
