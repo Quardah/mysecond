@@ -20,8 +20,8 @@ public class Caretaker {
 
 	protected ArrayList<Memento> mementoList = null;
 
-	public Caretaker() {
-		mementoList = new ArrayList<Memento>();
+	public Caretaker(ArrayList<Memento> mementoList) {
+		this.mementoList = mementoList;
 	}
 
 	public void add(Memento memento) {

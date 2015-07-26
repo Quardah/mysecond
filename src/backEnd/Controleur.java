@@ -40,7 +40,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 
 	private static Controleur instance = null;
 	private Caretaker caretaker = null;
-	private ImageModel image = new ImageModel();
+	private ImageModel image = null;
 	private int currentMemento = 0;
 	private Factory factory = null;	
 	private int positionx;
@@ -49,6 +49,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	protected Controleur() {
 		this.factory = new Factory();
 		this.caretaker = factory.makeCaretaker();
+		this.image = factory.makeImage();
 		this.positionx = 0;
 		this.positiony = 0;
 	}
@@ -146,7 +147,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	}
 
 	public boolean hasPrevious() {
-		return (currentMemento - 1 < 0);
+		return (currentMemento - 1 > 0);
 	}
 
 	public ImageModel getImageModel() {

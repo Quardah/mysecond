@@ -1,5 +1,6 @@
 package commandes;
 
+import backEnd.Controleur;
 import backEnd.ImageModel;
 
 /******************************************************
@@ -16,18 +17,19 @@ import backEnd.ImageModel;
  *******************************************************/
 
 public class Zoomer extends Commande {
-
+	
+	private Controleur controleur;
 	private double facteurZoom;
 	private ImageModel image;
 
 	public Zoomer() {
-		// vide?
+		this.controleur = Controleur.getControleur();
+		this.image = controleur.getImageModel();
+		this.facteurZoom = image.getFacteurZoom();
 	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
 		image.setFacteurZoom(facteurZoom);
-
 	}
 }

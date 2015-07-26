@@ -19,7 +19,7 @@ import java.util.Observable;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class ImageModel extends Observable {
+public class ImageModel extends Observable{
 
 	protected BufferedImage image;
 	private double facteurZoom;
@@ -31,10 +31,6 @@ public class ImageModel extends Observable {
 		this.facteurZoom = 1;
 		this.positionX = 0;
 		this.positionY = 0;
-	}
-
-	public void setFacteurZoom(double afacteurZoom) {
-		this.facteurZoom = afacteurZoom;
 	}
 
 	public void setPositionXY(int posX, int posY) {
@@ -55,8 +51,24 @@ public class ImageModel extends Observable {
 	public int getPositionX(){
 		return positionX;
 	}
+	
+	public void setPositionX(int positionX){
+		this.positionX = positionX;
+	}
 
 	public int getPositionY(){
 		return positionY;
+	}
+	
+	public void setPositionY(int positionY){
+		this.positionY = positionY;
+	}
+	
+	public double getFacteurZoom(){
+		return facteurZoom;
+	}
+	
+	public void setFacteurZoom(double facteurZoom){
+		this.facteurZoom = facteurZoom;
 	}
 }
