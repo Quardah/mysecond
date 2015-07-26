@@ -115,10 +115,6 @@ public class Controleur extends Observable implements ActionListener, Observer  
 		this.positiony = positiony;
 	}
 
-	public ImageModel getImage() {
-		return image;
-	}
-
 	public void setImage(BufferedImage bufImg) {
 		this.image.setImage(bufImg);
 		this.setChanged();
@@ -154,7 +150,6 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	}
 
 	public ImageModel getImageModel() {
-		// Pour SauverMemento Uniquement
 		return image;
 	}
 

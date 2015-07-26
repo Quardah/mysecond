@@ -40,11 +40,11 @@ public class Sauvegarder extends Commande {
 
 		// execute save action
 
-		// Enregistre les fichiers JPG uniquement
+		// Enregistre les fichiers JPG uniquemente
 
 		String format = "JPG";
 
-		BufferedImage image = pictureMemoire.getImage();
+		BufferedImage image = controleur.getImageModel().getImage();
 
 		try {
 
