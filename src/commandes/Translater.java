@@ -28,6 +28,7 @@ public class Translater extends Commande {
 	public void execute() {
 		// TODO Auto-generated method stub
 		controleur.getImageModel().setPositionXY(controleur.getPositionx(), controleur.getPositiony());
+//		System.out.println("Translator : \n- X : " + controleur.getPositionx() + "\n- Y : " + controleur.getPositiony());
 
 	}
 

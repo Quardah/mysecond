@@ -19,17 +19,26 @@ import backEnd.ImageModel;
 public class Zoomer extends Commande {
 	
 	private Controleur controleur;
-	private double facteurZoom;
 	private ImageModel image;
 
 	public Zoomer() {
 		this.controleur = Controleur.getControleur();
 		this.image = controleur.getImageModel();
-		this.facteurZoom = image.getFacteurZoom();
 	}
 
 	@Override
 	public void execute() {
-		image.setFacteurZoom(facteurZoom);
+		image.setFacteurZoom(controleur.getZoomLevel());
+		System.out.println("ZOOM : " + controleur.getZoomLevel());
 	}
+
 }
+
+//	public void mouseWheelMoved(MouseWheelEvent e) {
+//		Point pos = new Point(controleur.getPositionx(), controleur.getPositiony());
+//		Point dimension = new Point();
+//		dimension.x = (int)(e.getX()*(0.9f - 1f) + 0.9f*pos.x);
+//		dimension.y = (int)(e.getY()*(0.9f - 1f) + 0.9f*pos.y);
+//		controleur.setZoomLevel(e.getWheelRotation());
+//		controleur.runCommande(Commande.TypeCommande.ZOOMER);
+//	}

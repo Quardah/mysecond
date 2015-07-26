@@ -27,6 +27,7 @@ public class Refaire extends Commande {
 	public void execute() {
 		if (controleur.hasNext()) {
 			controleur.loadMemento(controleur.getCurrentMemento() + 1);
+			System.out.println("DO-AGAIN");
 		} else {
 			System.out.println("NO NEXT\n");
 		}
