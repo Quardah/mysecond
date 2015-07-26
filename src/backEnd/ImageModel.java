@@ -51,5 +51,12 @@ public class ImageModel extends Observable {
 	public void setImage(BufferedImage image) {
 		this.image = image;
 	}
+	
+	public int getPositionX(){
+		return positionX;
+	}
 
+	public int getPositionY(){
+		return positionY;
+	}
 }

@@ -18,5 +18,9 @@ public class Factory {
 	
 	public Factory() {
 	}
+	
+	public Caretaker makeCaretaker(){
+		return new Caretaker();
+	}
 
 }

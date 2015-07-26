@@ -25,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import backEnd.Controleur;
+import backEnd.ControleurSourie;
 import backEnd.ImageModel;
 
 
@@ -33,6 +34,7 @@ public class Frame extends JFrame {
 	private JPanel panneau = new JPanel();
 	private MenuFenetre menu = new MenuFenetre();
 	private Controleur controleur = Controleur.getControleur();
+	private ControleurSourie ctrl1, ctrl2;
 
 	public Frame() throws IOException {
 		JPanel labelVignette = new JPanel();
@@ -42,6 +44,18 @@ public class Frame extends JFrame {
 		Boite boiteMain = new Boite(214, 95, 204, 264);
 		BoitePerspective boitePerspective = new BoitePerspective(457, 95, 204, 264);
 
+		ctrl1 = new ControleurSourie();
+		ctrl2 = new ControleurSourie();
+		
+		
+		boiteMain.addMouseListener(ctrl1);
+		boiteMain.addMouseMotionListener(ctrl1);
+		boiteMain.addMouseWheelListener(ctrl1);
+		
+		boitePerspective.addMouseListener(ctrl2);
+		boitePerspective.addMouseMotionListener(ctrl2);
+		boitePerspective.addMouseWheelListener(ctrl2);
+		
 		this.setSize(700, 700);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());

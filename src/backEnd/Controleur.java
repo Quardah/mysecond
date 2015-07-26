@@ -48,7 +48,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 
 	protected Controleur() {
 		this.factory = new Factory();
-		this.caretaker = new Caretaker();
+		this.caretaker = factory.makeCaretaker();
 		this.positionx = 0;
 		this.positiony = 0;
 	}

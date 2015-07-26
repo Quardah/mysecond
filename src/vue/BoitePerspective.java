@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.Observable;
 
 import backEnd.Controleur;
@@ -30,12 +31,15 @@ public class BoitePerspective extends Boite {
 	}
 
 	protected void paintComponent(Graphics g) {
-		// super.paintComponent(g);
-		System.out.println("PAINT DEQUOI");
 		if (img != null) {
-			g.clearRect(0, 0, getWidth(), getHeight());
-			g.drawImage(img, 0, 0, img.getWidth() - 1,
-					img.getHeight() - 1, null);
+			if (img.getImage() != null) {
+				
+				Point offset = new Point(0 - img.getPositionX(), 0 - img.getPositionY());
+				
+				g.clearRect(0, 0, getWidth(), getHeight());
+				g.drawImage(img.getImage(), offset.x, offset.y, img.getImage().getWidth() - 1,
+						img.getImage().getHeight() - 1, null);
+			}
 		}
 	}
 

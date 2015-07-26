@@ -32,9 +32,11 @@ public class BoiteVignette extends Boite {
 	protected void paintComponent(Graphics g) {
 		// super.paintComponent(g);
 		if (img != null) {
-			g.clearRect(0, 0, getWidth(), getHeight());
-			g.drawImage(img, 0, 0, img.getWidth() - 1,
-					img.getHeight() - 1, null);
+			if (img.getImage() != null) {
+				g.clearRect(0, 0, getWidth(), getHeight());
+				g.drawImage(img.getImage(), 0, 0, img.getImage().getWidth() - 1,
+						img.getImage().getHeight() - 1, null);
+			}
 		}
 	}
 

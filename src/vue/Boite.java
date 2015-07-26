@@ -2,6 +2,7 @@ package vue;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Observable;
 import java.util.Observer;
@@ -31,7 +32,7 @@ import backEnd.ImageModel;
 public class Boite extends JPanel implements Observer {
 
 	private static final long serialVersionUID = 1L;
-	protected BufferedImage img;
+	protected ImageModel img;
 
 	public Boite(int positionx, int positiony, int Largeur, int Longueur) {
 		this.setBounds(positionx, positiony, Largeur, Longueur);
@@ -41,15 +42,20 @@ public class Boite extends JPanel implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		Controleur controleur = (Controleur) arg0;
-		this.img = controleur.getImageModel().getImage();
+		this.img = controleur.getImageModel();
 		repaint();
 	}
 
 	protected void paintComponent(Graphics g) {
 		if (img != null) {
-			g.clearRect(0, 0, getWidth(), getHeight());
-			g.drawImage(img, 0, 0, img.getWidth() - 1,
-					img.getHeight() - 1, null);
+			if (img.getImage() != null) {
+				System.out.println("DEBUG X :" + img.getPositionX() + "Y :" + img.getPositionY());
+				Point offset = new Point(0 - img.getPositionX(), 0 - img.getPositionY());
+				
+				g.clearRect(0, 0, getWidth(), getHeight());
+				g.drawImage(img.getImage(), offset.x, offset.y, img.getImage().getWidth() - 1,
+						img.getImage().getHeight() - 1, null);
+			}
 		}
 	}
 }

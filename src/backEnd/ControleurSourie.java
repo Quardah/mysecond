@@ -3,7 +3,6 @@ package backEnd;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import commandes.Commande;
 
 public class ControleurSourie extends MouseAdapter {
@@ -37,6 +36,19 @@ public class ControleurSourie extends MouseAdapter {
 					controleur.runCommande(Commande.TypeCommande.TRANSLATER);
 										 
 					median =  event.getPoint();
+				}
+			}
+		}
+	}
+	
+	public void mouseReleased(MouseEvent event) {
+		if (controleur.hasImage()) {
+			if (event.getButton() == MOUSE_LEFT_CLICK){
+				fin = event.getPoint();
+				if(debut != null) {
+					controleur.setPositionx(debut.x - fin.x);
+					controleur.setPositionx(debut.y - fin.y);
+					controleur.runCommande(Commande.TypeCommande.TRANSLATER);
 				}
 			}
 		}
