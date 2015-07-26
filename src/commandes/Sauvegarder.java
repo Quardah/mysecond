@@ -17,7 +17,10 @@ Historique des modifications
 *******************************************************/
 
 import javax.imageio.ImageIO;
+
+import backEnd.Controleur;
 import backEnd.ImageModel;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,8 +28,13 @@ import java.io.IOException;
 // faut trouver une facon de out du programme l'image modifier dans le buffer vers le disque.
 
 public class Sauvegarder extends Commande {
+	private Controleur controleur;
 
 	private ImageModel pictureMemoire;
+	
+	public Sauvegarder(){
+		this.controleur = Controleur.getControleur();
+	}
 
 	public void execute() {
 
@@ -42,7 +50,9 @@ public class Sauvegarder extends Commande {
 
 			ImageIO.write(image, format,
 
-			new File("C://Users/chcodio/Documents/image.jpg"));
+			//works only on linux now
+					
+			new File("~/Documents/image.jpg"));
 
 		} catch (IOException e) {
 

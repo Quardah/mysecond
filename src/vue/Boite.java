@@ -40,8 +40,8 @@ public class Boite extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		ImageModel imgModel = (ImageModel) arg0;
-		this.img = imgModel.getImage();
+		Controleur controleur = (Controleur) arg0;
+		this.img = controleur.getImageModel().getImage();
 		repaint();
 	}
 

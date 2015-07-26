@@ -26,7 +26,7 @@ public class ImageModel extends Observable {
 	private int positionX;
 	private int positionY;
 
-	public ImageModel() throws IOException {
+	public ImageModel() {
 		this.image = null;
 		this.facteurZoom = 1;
 		this.positionX = 0;

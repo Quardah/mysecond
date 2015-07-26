@@ -15,6 +15,7 @@ import commandes.Ouvrir;
 import commandes.Quitter;
 import commandes.Refaire;
 import commandes.Rien;
+import commandes.Sauvegarder;
 import commandes.SauverMemento;
 import commandes.Translater;
 import commandes.Zoomer;
@@ -39,7 +40,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 
 	private static Controleur instance = null;
 	private Caretaker caretaker = null;
-	private ImageModel image = null;
+	private ImageModel image = new ImageModel();
 	private int currentMemento = 0;
 	private Factory factory = null;	
 	private int positionx;
@@ -86,6 +87,9 @@ public class Controleur extends Observable implements ActionListener, Observer  
 			break;
 		case OUVRIR:
 			cmd = new Ouvrir();
+			break;
+		case SAUVEGARDER :
+			cmd = new Sauvegarder();
 			break;
 		default:
 			cmd = new Rien();

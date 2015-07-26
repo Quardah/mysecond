@@ -15,7 +15,7 @@ package commandes;
  *******************************************************/
 public abstract class Commande {
 	
-	public enum TypeCommande { DEFAIRE, REFAIRE, CHARGERMEMENTO, SAUVERMEMENTO, TRANSLATER, ZOOMER, QUITTER, OUVRIR };
+	public enum TypeCommande { DEFAIRE, REFAIRE, CHARGERMEMENTO, SAUVERMEMENTO, TRANSLATER, ZOOMER, QUITTER, OUVRIR, SAUVEGARDER };
 
 	public abstract void execute();
 }
