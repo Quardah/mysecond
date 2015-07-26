@@ -34,11 +34,3 @@ public class Zoomer extends Commande {
 
 }
 
-//	public void mouseWheelMoved(MouseWheelEvent e) {
-//		Point pos = new Point(controleur.getPositionx(), controleur.getPositiony());
-//		Point dimension = new Point();
-//		dimension.x = (int)(e.getX()*(0.9f - 1f) + 0.9f*pos.x);
-//		dimension.y = (int)(e.getY()*(0.9f - 1f) + 0.9f*pos.y);
-//		controleur.setZoomLevel(e.getWheelRotation());
-//		controleur.runCommande(Commande.TypeCommande.ZOOMER);
-//	}
