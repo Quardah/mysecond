@@ -4,8 +4,10 @@ import backEnd.Controleur;
 import backEnd.ImageModel;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: Tranlater.java Date
- * cree: 2015-07-19
+ * Cours: LOG121
+ * Projet: laboratoire #4
+ * Nom du fichier: Tranlater.java
+ * Date cree: 2015-07-19
  *******************************************************
  * Classe concrete pour la translation
  *******************************************************

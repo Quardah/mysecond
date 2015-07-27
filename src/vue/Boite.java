@@ -14,19 +14,22 @@ import backEnd.Controleur;
 import backEnd.ImageModel;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: Boite.java Date cree:
- * 2015-07-22
+ * Cours: LOG121
+ * Projet: laboratoire #4
+ * Nom du fichier: Boite.java
+ * Date cree: 2015-07-22
  *******************************************************
  * Classe Boite. Defini une boite contenant une image
  *******************************************************
  * Historique des modifications
  *******************************************************
  * @author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
- * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 2015-07-22 Version
- *         Initiale sa marche pas 2015-07-22 Version qui implements finalement
- *         swing.JPanel fak sa marche 2015-07-23 Version Finale. 2015-07-23
- *         Nouvelle version finale qui extends pu ActionListener parce que sa
- *         sert a rien.
+ * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 
+ * 2015-07-22 Version Initiale sa marche pas 
+ * 2015-07-22 Version qui implements finalement swing.JPanel fak sa marche 
+ *         2015-07-23 Version Finale.
+ *         2015-07-23 Nouvelle version finale qui extends pu ActionListener 
+ *         parce que sa sert a rien basicly.
  *******************************************************/
 
 public class Boite extends JPanel implements Observer {

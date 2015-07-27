@@ -7,6 +7,23 @@ import java.awt.event.MouseWheelEvent;
 
 import commandes.Commande;
 
+/******************************************************
+Cours:  LOG121
+Projet: laboratoire #4 JavaPaint
+Nom du fichier: Controlleur.java
+Date cree: 2015-07-15
+*******************************************************
+* Classe definissant le controlleur et son comportement
+* permet d'agir et de faire des modifications sur l'image
+*******************************************************
+Historique des modifications
+*******************************************************
+*@author Jean-Pierre Bertrand Dorion
+2015-07-15 Version Initiale
+2015-07-22 Version Fonctionelle
+2015-07-24 Version Finale
+*******************************************************/
+
 public class ControleurSourie extends MouseAdapter {
 
 	private static final int MOUSE_LEFT_CLICK = MouseEvent.BUTTON1;

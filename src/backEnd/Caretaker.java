@@ -3,11 +3,13 @@ package backEnd;
 import java.util.ArrayList;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: CareTaker.java Date
- * cree: 2015-07-19
+ * Cours: LOG121
+ * Projet: laboratoire #4
+ * Nom du fichier: CareTaker.java 
+ * Date cree: 2015-07-19
  *******************************************************
- * Classe concrete du gestionnaire d'etat "Memento". Permet De reprendre un
- * état.
+ * Classe concrete du gestionnaire d'etat "Memento". Permet de reprendre un
+ * etat.
  *******************************************************
  * Historique des modifications
  *******************************************************

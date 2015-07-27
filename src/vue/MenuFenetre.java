@@ -12,8 +12,10 @@ import commandes.Commande.TypeCommande;
 import backEnd.Controleur;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: MenuFenetre.java Date
- * cree: 2015-07-21
+ * Cours: LOG121
+ * Projet: laboratoire #4
+ * Nom du fichier: MenuFenetre.java
+ * Date cree: 2015-07-21
  *******************************************************
  * Classe du menu de la fenetre. Contient les actions selectionnable via menus
  * en haut du frame.
@@ -21,8 +23,9 @@ import backEnd.Controleur;
  * Historique des modifications
  *******************************************************
  * @author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
- * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 2015-07-21 Version
- *         initiale 2015-07-22 Version Fonctionelle
+ * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 
+ * 2015-07-21 Version initiale 
+ * 2015-07-22 Version Fonctionelle
  *******************************************************/
 
 public class MenuFenetre extends JMenuBar {

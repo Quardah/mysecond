@@ -1,16 +1,20 @@
 package commandes;
 
 /******************************************************
- * Cours: LOG121 Projet: laboratoire #4 Nom du fichier: Quitter.java Date cree:
- * 2015-07-21
+ * Cours: LOG121
+ * Projet: laboratoire #4
+ * Nom du fichier: Quitter.java
+ * Date cree: 2015-07-21
  *******************************************************
  * Classe pour ouvrir un nouveau fichier. Est une commande.
  *******************************************************
  * Historique des modifications
  *******************************************************
  * @author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
- * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 2015-07-21 Version
- *         initiale 2015-07-22 Version Fonctionelle
+ * @author Carl-Hendi Codio & Mohammed Nacereddine Toros. 
+ * 2015-07-21 Version Initiale 
+ * 2015-07-22 Version Fonctionelle
+ * 2015-06-26 Version Finale
  *******************************************************/
 
 

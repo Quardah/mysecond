@@ -11,10 +11,13 @@ Date cree: 2015-07-15
 *******************************************************
 Historique des modifications
 *******************************************************
-*@author Jean-Pierre Bertrand Dorion
-2015-07-15 Version Initiale (Live sa fait rien)
+@author Jean-Pierre Bertrand Dorion & Vincent N Cicciu.
+@author Carl-Hendi Codio & Mohammed Nacereddine Toros. 
+2015-07-22 Version Initiale. (Live sa fait rien)
 2015-07-22 Version Fonctionelle
+2015-07-25 Version Finale.
 *******************************************************/
+
 import java.util.Observable;
 import java.awt.image.BufferedImage;
 
