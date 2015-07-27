@@ -31,6 +31,7 @@ public class ChargerMemento extends Commande {
 	public void execute() { // trouver facon statique de prendre indice dans le
 							// runtime
 		controleur.loadMemento(this.index);
+		controleur.change();
 	}
 
 }

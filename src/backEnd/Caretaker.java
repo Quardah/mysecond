@@ -30,8 +30,9 @@ public class Caretaker {
 		mementoList.add(memento);
 	}
 
-	public Memento loadMemento(int nb) {
-		return mementoList.get(nb);
+	public ImageModel loadMemento(int nb) {
+		System.out.println("RETURN : " + mementoList.get(nb));
+		return mementoList.get(nb).getEtat();
 	}
 
 	public int getNbMemento() {

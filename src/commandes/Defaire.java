@@ -28,10 +28,12 @@ public class Defaire extends Commande {
 	}
 
 	public void execute() {
+		System.out.println("NB CHECK :" + (controleur.getCurrentMemento() - 1) + "");
 		if (controleur.hasPrevious()) {
 			controleur.loadMemento(controleur.getCurrentMemento() - 1);
 		} else {
 			System.out.println("NO PREVIOUS\n");
 		}
+		controleur.change();
 	}
 }

@@ -21,12 +21,14 @@ package backEnd;
 public class Memento {
 	private ImageModel etat;
 
-	public Memento(ImageModel etat) {
-		this.etat = etat;
-		System.out.println("DEBUT:" + etat);
+	public Memento(ImageModel etat) throws CloneNotSupportedException {
+		this.etat = new ImageModel();
+		this.etat = (ImageModel) etat.clone();
+		System.out.println("DEBUG: FROM : " + etat + "  .TO. : " + this.etat);
 	}
 
 	public ImageModel getEtat() {
+		System.out.println("LOAD:   " + etat);
 		return etat;
 	}
 

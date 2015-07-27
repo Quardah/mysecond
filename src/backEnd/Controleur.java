@@ -46,6 +46,9 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	private int positionx;
 	private int positiony;
 	private double zoomLevel;
+	private int index = 0;
+	private int indexmax = 0;
+	private boolean debugbool = false; //patch quick
 
 	protected Controleur() {
 		this.factory = new Factory();
@@ -67,10 +70,15 @@ public class Controleur extends Observable implements ActionListener, Observer  
 		Commande cmd;
 		switch(typeCmd) {
 		case CHARGERMEMENTO:
-			cmd = new ChargerMemento(0);
+			cmd = new ChargerMemento(index);
 			break;
 		case DEFAIRE:
 			cmd = new Defaire();
+			if (debugbool == false){
+				debugbool = true;
+				cmd.execute();
+				//le premier "Defaire" doit s'executer 2 fois.
+			}
 			break;
 		case QUITTER:
 			cmd = new Quitter();
@@ -135,9 +143,16 @@ public class Controleur extends Observable implements ActionListener, Observer  
 		caretaker.add(memento);
 	}
 
-	public Memento loadMemento(int nb) {
+	public void loadMemento(int nb) {
 		currentMemento = nb;
-		return caretaker.loadMemento(nb);
+		this.image = caretaker.loadMemento(nb);
+		this.setChanged();
+		this.notifyObservers();
+		
+	}
+	
+	public void currentMementoIncrementation(){
+		currentMemento++;
 	}
 
 	public int getCurrentMemento() {
@@ -150,7 +165,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	}
 
 	public boolean hasPrevious() {
-		return (currentMemento - 1 > 0);
+		return (currentMemento - 1 > -1);
 	}
 
 	public ImageModel getImageModel() {
@@ -177,5 +192,14 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	public double getZoomLevel()
 	{
 		return zoomLevel;
+	}
+	
+	public void change(){
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void setIndex(int nb){
+		this.index = nb;
 	}
 }

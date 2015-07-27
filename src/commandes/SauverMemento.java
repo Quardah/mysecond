@@ -27,7 +27,14 @@ public class SauverMemento extends Commande {
 	}
 
 	public void execute() {
-		controleur.nouveauMemento(new Memento(controleur.getImageModel()));
+		try {
+			controleur.nouveauMemento(new Memento(controleur.getImageModel()));
+		} catch (CloneNotSupportedException e) {
+			//Clone failed. Devrais jamais arriver.
+			e.printStackTrace();
+		}
+		controleur.currentMementoIncrementation();
+		controleur.change();
 	}
 
 }

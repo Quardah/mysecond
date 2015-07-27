@@ -21,7 +21,7 @@ Historique des modifications
 import java.util.Observable;
 import java.awt.image.BufferedImage;
 
-public class ImageModel extends Observable{
+public class ImageModel extends Observable implements Cloneable {
 
 	protected BufferedImage image;
 	private double facteurZoom;
@@ -75,4 +75,8 @@ public class ImageModel extends Observable{
 		setChanged();
 		notifyObservers();
 	}
+	
+	public Object clone() throws CloneNotSupportedException{  
+		return super.clone();
+	}  
 }

@@ -34,7 +34,8 @@ public class MenuFenetre extends JMenuBar {
 	private int nbmemento = 0;
 
 	private JMenu aide, fichier, modifier;
-	private JMenuItem ouvririmage, saveimage, quit, defaire, refaire, savemem, loadmem, trans, zoom;
+	private JMenuItem ouvririmage, saveimage, quit, defaire, refaire, savemem;
+	private JMenu loadmem;
 	
 	public MenuFenetre() {
 		this.controleur = Controleur.getControleur();
@@ -72,20 +73,11 @@ public class MenuFenetre extends JMenuBar {
 		modifier.add(refaire);
 
 		loadmem = new JMenu("Charger Memento");
-		loadmem.addActionListener(new LoadMemLis());
 		modifier.add(loadmem);
 		
 		savemem = new JMenuItem("Sauver Memento");
 		savemem.addActionListener(new SaveMemLis());
 		modifier.add(savemem);
-		
-		trans = new JMenuItem("Translation...");
-		trans.addActionListener(new TransLis());
-		modifier.add(trans);
-
-		zoom = new JMenuItem("Zoom...");
-		zoom.addActionListener(new ZoomLis());
-		modifier.add(zoom);
 
 		add(modifier);
 	}
@@ -103,30 +95,23 @@ public class MenuFenetre extends JMenuBar {
 	}
 	
 	private class LoadMemLis implements ActionListener {
+		private int index;
+		
+		public LoadMemLis(int nb) {
+			this.index = nb;
+		}
+
 		public void actionPerformed(ActionEvent arg0) {
+			controleur.setIndex(index);
 			controleur.runCommande(Commande.TypeCommande.CHARGERMEMENTO);
 		}
 	}
 	
 	private class SaveMemLis implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
-			//newmem = new JMenuItem("" + nbmemento + "");
-			//newmem.addActionListener(new LoadMemLis(nbmemento));
-			//loadmem.add(newmem);
-			//nbmemento++;
+			ajouterMemento(nbmemento);
+			nbmemento++;
 			controleur.runCommande(Commande.TypeCommande.SAUVERMEMENTO);
-		}
-	}
-	
-	private class TransLis implements ActionListener {
-		public void actionPerformed(ActionEvent arg0) {
-			controleur.runCommande(Commande.TypeCommande.TRANSLATER);
-		}
-	}
-	
-	private class ZoomLis implements ActionListener {
-		public void actionPerformed(ActionEvent arg0) {
-			controleur.runCommande(Commande.TypeCommande.ZOOMER);
 		}
 	}
 	
@@ -146,6 +131,12 @@ public class MenuFenetre extends JMenuBar {
 		public void actionPerformed(ActionEvent arg0) {
 			controleur.runCommande(Commande.TypeCommande.SAUVEGARDER);
 		}
+	}
+	
+	public void ajouterMemento(int nb) {
+		JMenuItem nextmemento = new JMenuItem("" + nb + "");
+		nextmemento.addActionListener(new LoadMemLis(nb));
+		loadmem.add(nextmemento);
 	}
 	
 }

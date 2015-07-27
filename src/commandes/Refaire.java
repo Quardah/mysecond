@@ -28,12 +28,14 @@ public class Refaire extends Commande {
 	}
 
 	public void execute() {
+		System.out.println("NB CHECK :" + (controleur.getCurrentMemento() + 1) + "");
 		if (controleur.hasNext()) {
 			controleur.loadMemento(controleur.getCurrentMemento() + 1);
 			System.out.println("DO-AGAIN");
 		} else {
 			System.out.println("NO NEXT\n");
 		}
+		controleur.change();
 	}
 
 }
