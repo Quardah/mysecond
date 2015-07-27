@@ -1,7 +1,9 @@
 package vue;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.Observable;
 
 import backEnd.Controleur;
@@ -38,10 +40,15 @@ public class BoitePerspective extends Boite {
 			if (img.getImage() != null) {
 				
 				Point offset = new Point(0 - img.getPositionX(), 0 - img.getPositionY());
+				int newImageWidth = img.getImage().getWidth() * (int) img.getFacteurZoom();
+				int newImageHeight = img.getImage().getHeight() * (int) img.getFacteurZoom();
+				
+				System.out.println("SMTH : " + img.getFacteurZoom());
 				
 				g.clearRect(0, 0, getWidth(), getHeight());
-				g.drawImage(img.getImage(), offset.x, offset.y, img.getImage().getWidth() - 1,
-						img.getImage().getHeight() - 1, null);
+				g.clearRect(0, 0, getWidth(), getHeight());
+				g.drawImage(img.getImage(), offset.x, offset.y, (img.getImage().getWidth() * (int) img.getFacteurZoom()) - 1,
+						(img.getImage().getHeight() * (int) img.getFacteurZoom()) - 1, null);
 			}
 		}
 	}

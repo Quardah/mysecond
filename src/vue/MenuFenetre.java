@@ -34,7 +34,7 @@ public class MenuFenetre extends JMenuBar {
 	private int nbmemento = 0;
 
 	private JMenu aide, fichier, modifier;
-	private JMenuItem ouvririmage, saveimage, quit, defaire, refaire, savemem;
+	private JMenuItem ouvririmage, saveimage, quit, defaire, refaire, savemem, zoomdeux, zoomquatre;
 	private JMenu loadmem;
 	
 	public MenuFenetre() {
@@ -78,10 +78,43 @@ public class MenuFenetre extends JMenuBar {
 		savemem = new JMenuItem("Sauver Memento");
 		savemem.addActionListener(new SaveMemLis());
 		modifier.add(savemem);
+		
+		zoomdeux = new JMenuItem("Zoom x2");
+		zoomdeux.addActionListener(new ZoomLis2());
+		modifier.add(zoomdeux);
+		
+		zoomquatre = new JMenuItem("Zoom x4");
+		zoomquatre.addActionListener(new ZoomLis4());
+		modifier.add(zoomquatre);
+
 
 		add(modifier);
 	}
-
+	
+	private class ZoomLis2 implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			if(controleur.getZoomLevel() == 2) {
+				controleur.setZoomLevel(1);
+			} else {
+				controleur.setZoomLevel(2);
+			}
+			
+			controleur.runCommande(Commande.TypeCommande.ZOOMER);
+		}
+	}
+	
+	private class ZoomLis4 implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			if(controleur.getZoomLevel() == 4) {
+				controleur.setZoomLevel(1);
+			} else {
+				controleur.setZoomLevel(4);
+			}
+			
+			controleur.runCommande(Commande.TypeCommande.ZOOMER);
+		}
+	}
+	
 	private class UndoLis implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			controleur.runCommande(Commande.TypeCommande.DEFAIRE);

@@ -65,8 +65,8 @@ public class ControleurSourie extends MouseAdapter {
 			if (event.getButton() == MOUSE_LEFT_CLICK){
 				fin = event.getPoint();
 				if(debut != null) {
-					controleur.setPositionx(debut.x - fin.x);
-					controleur.setPositionx(debut.y - fin.y);
+					controleur.setPositionx(fin.x);
+					controleur.setPositiony(fin.y);
 					controleur.runCommande(Commande.TypeCommande.TRANSLATER);
 				}
 			}

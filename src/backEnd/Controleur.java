@@ -45,9 +45,7 @@ public class Controleur extends Observable implements ActionListener, Observer  
 	private Factory factory = null;	
 	private int positionx;
 	private int positiony;
-	private double zoomLevel;
 	private int index = 0;
-	private int indexmax = 0;
 	private boolean debugbool = false; //patch quick
 
 	protected Controleur() {
@@ -185,13 +183,11 @@ public class Controleur extends Observable implements ActionListener, Observer  
 
 	public void setZoomLevel(double zoomLevel)
 	{
-		zoomLevel /= 100;
-		zoomLevel *= -45;
-		this.zoomLevel = zoomLevel;
+		image.setFacteurZoom(zoomLevel);
 	}
 	public double getZoomLevel()
 	{
-		return zoomLevel;
+		return image.getFacteurZoom();
 	}
 	
 	public void change(){
