@@ -17,7 +17,6 @@ Historique des modifications
 *******************************************************/
 import java.util.Observable;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class ImageModel extends Observable{
 
